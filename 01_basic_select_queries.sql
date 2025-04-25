@@ -1,46 +1,54 @@
-# 进阶1 基础查询 select
-/* select 查询列表 from 表名
-查询列表可以是什么
-可以查询表中字段column, 常量值，表达式，函数
-查询表格是一个虚拟的表格
+# basic select query 
+
+/* select (list) from (table name)
+use select can do 
+1. can select column
+2. can select constant value 
+3. can select experssion 
+4. can select function
 */
-# 先打开库名 
+
+# firstly we have to open database 
 USE myemployees; 
 
- #  查询表格的单个字段 
+ #  query single column 
 SELECT last_name FROM myemployees.employees;
 
-# 查询表中的多个字段
+#  query mutiple columns
 SELECT last_name,salary,email FROM myemployees.employees; 
 
- /*查询表中的所有字段 
+ /* query all columns in table 
 select employee_id,first_name,last_name,phone_number,....... 可以用F12整理格式 
-这个比较麻烦 */
+the above is little bit complex 
+we can use * instend all columns 
+ */
 SELECT * FROM myemployees.employees; 
 
-# 要执行哪条，选中哪条以后点闪电执行就可以了 
 
-# 查询常量值 
-SELECT 100;     # 查询整数型 
-SELECT 'join';  # 查询字符型
+# query constant value 
+SELECT 100;     # int
+SELECT 'join';  # text
 
-# 查询表达式 
+# query expression
 SELECT 100*98; 
 
-# 查询函数 
+# query function
 SELECT VERSION();   # 查询当前版本 
 
-# 给字段 column 起别名 两种方式 
-/* 好处 
-1. 便于理解
-2. 如果要查询的column 有重名可以使用别名区分开来 
-*/ 
-# 方式1 用AS
+# there are to methods can give the name to columns  
+
+# 1.  use AS 
 SELECT last_name AS 姓,first_name AS 名 FROM myemployees.employees; 
-# 方式2 使用空格 
+
+#  use space 
 SELECT last_name 姓 FROM myemployees.employees;
 
-# 如果起的别名大于一个单词 用双引号或者单引号引起来 如下
-SELECT first_name 'your name' FROM myemployees.employees;
+# if the name more than one words we have to use quotation mark (both "",'' can use)
+SELECT first_name "your name" FROM myemployees.employees;
+
+/* the benefit of give a name to columns
+1.  easy to understand 
+2. if the columns are repetition give a name can seperate
+*/ 
 
 
