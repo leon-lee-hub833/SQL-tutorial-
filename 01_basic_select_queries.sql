@@ -8,16 +8,17 @@ use select can do
 4. can select function
 */
 
-# firstly we have to open database 
+# 1.firstly we have to open database 
 USE myemployees; 
 
- #  query single column 
+# 2. query column
+ # 2.1 query single column 
 SELECT last_name FROM myemployees.employees;
 
-#  query mutiple columns
+# 2.2 query mutiple columns
 SELECT last_name,salary,email FROM myemployees.employees; 
 
- /* query all columns in table 
+ /* 2.3 query all columns in table 
 select employee_id,first_name,last_name,phone_number,....... 可以用F12整理格式 
 the above is little bit complex 
 we can use * instend all columns 
@@ -25,22 +26,22 @@ we can use * instend all columns
 SELECT * FROM myemployees.employees; 
 
 
-# query constant value 
+# 3.query constant value 
 SELECT 100;     # int
 SELECT 'join';  # text
 
-# query expression
+# 4. query expression
 SELECT 100*98; 
 
-# query function
-SELECT VERSION();   # 查询当前版本 
+# 5.query function
+SELECT VERSION();   # check the current version
 
-# there are to methods can give the name to columns  
 
-# 1.  use AS 
+# 6.there are two methods can give the name to columns  
+# 6.1 use AS 
 SELECT last_name AS 姓,first_name AS 名 FROM myemployees.employees; 
 
-#  use space 
+# 6.2 use space 
 SELECT last_name 姓 FROM myemployees.employees;
 
 # if the name more than one words we have to use quotation mark (both "",'' can use)
@@ -50,5 +51,29 @@ SELECT first_name "your name" FROM myemployees.employees;
 1.  easy to understand 
 2. if the columns are repetition give a name can seperate
 */ 
+
+# 7. remove duplicates
+SELECT department_id FROM  myemployees.employees;
+# add  DISTINCT to remove duplicates  
+SELECT DISTINCT department_id FROM  myemployees.employees;
+
+
+#8. + Operator – Only Used for Arithmetic, Not for Concatenation
+/* 
+SELECT 100+100;    result 200 
+SELECT '123'+100;  result 223
+SELECT 'JOIN'+100; result 0+100 = 100
+ SELECT null+100;  result null 
+*/
+
+# we try use + to concate last_name and first name worng
+SELECT 
+last_name+first_name AS 姓名 
+FROM 
+myemployees.employees;  
+
+# 9. use CONCAT（） function to concat t
+SELECT CONCAT(last_name,first_name) FROM myemployees.employees;
+SELECT CONCAT(last_name,first_name) AS 姓名 FROM myemployees.employees;
 
 
